@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "190676633212",
+    "project_id": "better-eat",
+    "storage_bucket": "better-eat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190676633212:android:c7ef1392108dafd1ae6bf9",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190676633212-2dbsrk9ufaoa500a9b5i2nsdjjqcqj0f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "c95ffb79499daaa5b1efbef31130aa21bd289c16"
+          }
+        },
+        {
+          "client_id": "190676633212-daa04n6cs8uobhl0ht897ef8se9h9k75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzS7iiaI0X5WvtE9j2a5zr6MjMYQ05yNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190676633212-daa04n6cs8uobhl0ht897ef8se9h9k75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,12 @@
+<ion-content>
+  <ion-list lines="none">
+    <ion-item *ngFor="let product of productList; let i = index;" (click)="productPage(i)">
+      <ion-avatar slot="start">
+        <img src={{product.imgURL}}>
+      </ion-avatar>
+      <ion-label>
+        {{product.name}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

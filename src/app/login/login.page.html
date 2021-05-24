@@ -1,0 +1,31 @@
+<ion-content>
+
+  <div class="lower-half">
+    <form action="login(email, password)">
+      <ion-item mode="ios">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input #email required></ion-input>
+      </ion-item>
+    
+      <ion-item mode="ios">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" #password required></ion-input>
+      </ion-item>
+    </form>
+    <div style="text-align: center;">
+      <ion-button shape="round" class="l" (click)="login(email, password)" >Login</ion-button><br>
+      <ion-button shape="round" class="r" (click)="moveToRegister()">Registrarse</ion-button>
+      <p>
+        <a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>
+      </p>
+      <!--<ion-button shape="round" class="g" (click)="loginGoogle()">
+        <ion-icon slot="start" name="logo-google"></ion-icon>
+        Login
+      </ion-button>-->
+    </div>
+    
+  </div>
+
+  
+
+</ion-content>

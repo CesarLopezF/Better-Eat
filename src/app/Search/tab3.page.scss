@@ -1,0 +1,35 @@
+ion-content {
+    --background: #F1F1F3 !important;
+}
+
+ion-toolbar{
+    --background: #129748 !important;
+}
+
+ion-title{
+    text-align: center !important;
+}
+
+ion-avatar{
+    margin: auto auto !important;
+    img{
+        margin-top: 8px !important;
+    }
+}
+
+.companyLogo{
+    height: 100px;
+}
+
+ion-grid{
+    ion-card{
+        width:100%;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left:0 !important;
+        margin-right:0 !important;
+        ion-card-content{
+            padding: 0 !important; 
+        }
+    }
+}

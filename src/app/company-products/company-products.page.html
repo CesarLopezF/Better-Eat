@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{this.company}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size="4" *ngFor="let product of products;">
+        <ion-card button (click)="displayProduct(product.key)" mode="md">
+          <img src={{product.imgURL}}/>
+          <ion-card-header>
+            <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+</ion-content>

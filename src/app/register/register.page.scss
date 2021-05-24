@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+ion-content {
+    --background: #129748ee;
+    font-family: 'Roboto' !important; 
+}
+
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+ion-item{
+    color: white;
+    --background: transparent;
+}
+
+.lower-half{
+    position: relative;
+    margin-top: 40%;
+}
+
+.r{
+    margin-top: 20px;
+    --background:transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 45px;
+}

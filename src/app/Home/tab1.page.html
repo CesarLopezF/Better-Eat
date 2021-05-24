@@ -1,0 +1,47 @@
+<ion-header *ngIf="user$ | async as user">
+  <ion-toolbar>
+    <ion-title>
+      <ion-avatar (click)="profile()">
+        <img src="{{user.photoURL}}">
+      </ion-avatar>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="ready && user$ | async as user" [fullscreen]="true">
+  
+
+  <div style="margin-left: 20px; margin-right: 20px;">
+    <div *ngFor="let userName of user.displayName.split(' '); let first = first">
+      <h1 *ngIf="first">Bienvenido {{userName}}</h1>
+    </div>
+    
+    <h4>Lo nuevo en Saludable</h4>
+
+    <div class="scrolling-wrapper">
+      <ion-card class="card" *ngFor="let product of healthyProducts" button (click)="displayProduct(product.key)" mode="md">
+        <img src="{{product.imgURL}}">
+        <ion-card-header>
+          <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <h4>Recién Agregados</h4>
+  
+    <div class="scrolling-wrapper">
+      <ion-card class="card" *ngFor="let product of recentProducts" button (click)="displayProduct(product.key)" mode="md">
+        <img src="{{product.imgURL}}">
+        <ion-card-header>
+          <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+  </div>
+
+  
+
+  
+
+</ion-content>

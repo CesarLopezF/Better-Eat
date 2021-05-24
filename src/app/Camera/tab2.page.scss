@@ -1,0 +1,37 @@
+ion-content {
+    --background: #F1F1F3 !important;
+}
+
+ion-toolbar{
+    --background: #129748 !important;
+}
+
+ion-title{
+    text-align: center !important;
+}
+
+ion-avatar{
+    margin: auto auto !important;
+    img{
+        margin-top: 8px !important;
+    }
+}
+
+
+.container1{
+    height: 66vh;
+}
+
+.buttonM{
+    margin-top: 30vh;
+}
+
+.buttonR{
+    margin-top: 30vh;
+    margin-right: 5vh;
+}
+
+.buttonL{
+    margin-top: 30vh;
+    margin-left: 5vh;
+}

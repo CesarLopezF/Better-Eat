@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+ion-content {
+    --background: #129748ee;
+    font-family: Arial, Helvetica, sans-serif !important; 
+}
+
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+div{
+    text-align: center;
+    color: white;
+    margin-top: 20vh;
+}
+
+ion-button{
+    margin-top: 10px;
+    width: 250px;
+    --background:transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 45px;
+}

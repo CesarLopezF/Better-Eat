@@ -1,0 +1,162 @@
+<ion-header *ngIf="product">
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{product.name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="product && user$ | async as user">
+
+  <div class="score">
+    <h5 *ngIf="commentsExist" >{{product.score}}</h5>
+    <ion-icon *ngIf="commentsExist"  name="star" class="star"></ion-icon>
+  </div>
+  <div style="text-align: center;">
+    <ion-card>
+      <img src="{{product.imgURL}}" alt="">
+    </ion-card>
+  </div>
+
+  <ion-card>
+    <div class="infoNutricional">
+      <ion-card-title>
+        Información Nutricional
+      </ion-card-title>
+      <ion-grid>
+        <ion-row *ngFor="let info of product.nutritionalInfo;">
+          <ion-col>
+            {{info}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+
+  <ion-card *ngIf="userCommentExists === false">
+    <ion-item>
+    
+      <ion-avatar slot="start">
+        <img src={{user.photoURL}}>
+      </ion-avatar>
+      <ion-label position="floating">Escribe un comentario</ion-label>
+      <ion-input type="text" name="comment" #comment required></ion-input>
+      <ion-icon class="send" slot="end" (click)="postComment(comment)" name="send"></ion-icon>
+
+    </ion-item>
+
+    <ionic5-star-rating class="ion-text-center" #rating 
+        activeIcon = "star"
+        defaultIcon = "star-outline"
+        halfIcon = "star-half"
+        halfStar = "false"
+        activeColor = "#f8d01cf5"
+        defaultColor = "#f4f4f4"
+        readonly = "false"
+        fontSize = "32px"
+        (ratingChanged)="logScoreChange($event)">
+    </ionic5-star-rating>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-item-group *ngIf="userCommentExists === true">
+
+      <ion-item-divider>
+        <ion-label>Mi Comentario</ion-label>
+      </ion-item-divider>
+  
+      <ion-item-sliding #slidingItem>
+  
+        <ion-item-options side="start">
+          <ion-item-option (click)="enableEdit(slidingItem)">Editar</ion-item-option>
+        </ion-item-options>
+  
+        <ion-item>
+  
+          <ion-avatar slot="start">
+            <img src={{userComment.photoURL}}>
+          </ion-avatar>
+  
+          <ion-label class="ion-text-wrap">
+            <h2>{{userComment.displayName}}</h2>
+            <h3 *ngIf="editable === false">{{userComment.comment}}</h3>
+            <ion-input *ngIf="editable === true" type="text" name="newComment" placeholder="Nuevo comentario" [(ngModel)]="newComment" required></ion-input>
+            <p>{{userComment.dateAdded.toMillis() | date:'dd/MM/yyyy'}}</p>
+          </ion-label>
+          <ion-icon *ngIf="editable === true" slot="end" (click)="updateComment()" name="send"></ion-icon>
+          <h5 *ngIf="editable === false" slot="end">{{userComment.score}}</h5>
+          <ion-icon *ngIf="editable === false" slot="end" name="star" class="star"></ion-icon>
+        </ion-item>
+
+        <ionic5-star-rating *ngIf="editable === true" class="ion-text-center" #rating 
+          activeIcon = "star"
+          defaultIcon = "star-outline"
+          halfIcon = "star-half"
+          halfStar = "false"
+          activeColor = "#f8d01cf5"
+          defaultColor = "#f4f4f4"
+          readonly = "false"
+          fontSize = "32px"
+          (ratingChanged)="logScoreChange($event)">
+        </ionic5-star-rating>
+        
+  
+        
+  
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="delete(slidingItem)">Borrar</ion-item-option>
+        </ion-item-options>
+  
+      </ion-item-sliding>
+
+      <ion-button *ngIf="editable === true" type="submit" (click)="cancelUpdateComment()" expand ="block" color="danger">CANCEL</ion-button>
+  
+    </ion-item-group>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-item-group *ngIf="commentsExist === true">
+
+      <ion-item-divider>
+        <ion-label>Comentarios</ion-label>
+      </ion-item-divider>
+  
+      <ion-list>
+  
+        <ion-item *ngFor="let comment of comments | slice:0:5; let i=index;">
+  
+          <ion-avatar slot="start">
+            <img src={{comment.photoURL}}>
+          </ion-avatar>
+  
+          <ion-label class="ion-text-wrap">
+            <h2>{{comment.displayName}}</h2>
+            <h3>{{comment.comment}}</h3>
+            <p *ngIf="comment.dateAdded">{{comment.dateAdded.toDate() | date:'dd/MM/yyyy'}}</p>
+          </ion-label>
+          <h5 slot="end">{{comment.score}}</h5>
+          <ion-icon slot="end" name="star" class="star"></ion-icon>
+  
+        </ion-item>
+
+        <ion-item (click)="moreComments()" button>
+          <ion-label>
+            Más Comentarios
+          </ion-label>
+        </ion-item>
+  
+      </ion-list>
+    </ion-item-group>
+
+  </ion-card>
+
+  
+
+</ion-content>

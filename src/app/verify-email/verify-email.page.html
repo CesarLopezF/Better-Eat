@@ -1,0 +1,27 @@
+<ion-header class="ion-no-border" style="--background: transparent">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user$ | async as user" fullscreen>
+
+  <div>
+    <ion-row>
+      <ion-col>
+        <h2> Thank you for registering </h2>
+        <p> We have sent a confirmation email to <strong>{{user.email}}</strong></p>
+        <p> Please check your email and click on the link to verify your email address. </p>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" (click)="onSendEmail()"> Resend verification email </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

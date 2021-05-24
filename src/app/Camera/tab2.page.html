@@ -1,0 +1,50 @@
+<ion-content  [fullscreen]="true">
+
+  <div class="container1">
+    <div *ngIf="IMAGE_TAKEN">
+      <img [src]="IMAGE_TAKEN">
+    </div>
+  </div>
+
+  <div class="container2">
+
+    <div *ngIf="!IMAGE_TAKEN">
+
+      <ion-fab class="buttonL" vertical="center" horizontal="start" slot="fixed">
+        <ion-fab-button color="light" (click)="flashlight()">
+          <ion-icon name="flashlight-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+      <ion-fab class="buttonM" vertical="center" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="takePicture()">
+          <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+    </div>
+    <div *ngIf="IMAGE_TAKEN">
+
+      <ion-fab class="buttonL" vertical="center" horizontal="start" slot="fixed">
+        <ion-fab-button color="light" (click)="retry()">
+          <ion-icon name="refresh-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+      <ion-fab class="buttonM" vertical="center" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="send()">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+    </div>
+
+    <ion-fab class="buttonR" vertical="center" horizontal="end" slot="fixed">
+      <ion-fab-button color="danger" (click)="cancel()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </div>
+
+</ion-content>

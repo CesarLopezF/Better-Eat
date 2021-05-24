@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border" style="--background: transparent">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <div class="lower-half">
+    <ion-item mode="ios">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input #name required></ion-input>
+    </ion-item>
+
+    <ion-item mode="ios">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" #email required></ion-input>
+    </ion-item>
+  
+    <ion-item mode="ios">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+
+    <ion-item mode="ios">
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input type="password" #passwordConfirm required></ion-input>
+    </ion-item>
+
+    <div style="text-align: center;">
+      <ion-button shape="round" class="r" (click)="register(name, email, password, passwordConfirm)" size="default">Registrarse</ion-button>
+    </div>
+    
+  </div>
+
+</ion-content>

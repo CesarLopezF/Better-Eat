@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border" style="--background: transparent">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="exit()">
+      <ion-icon name="exit-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user$ | async as user" fullscreen>
+
+  <div>
+    <img src="{{user.photoURL}}">
+
+    <h1>{{user.displayName}}</h1>
+
+    <ion-button shape="round" class="botones" (click)="cambiarNombre()">Cambiar nombre de perfil</ion-button>
+
+    <ion-button shape="round" class="botones" (click)="cambiarFoto()">Cambiar foto de perfil</ion-button>
+
+    <ion-button shape="round" class="botones" (click)="nuevaContrasena()">Solicitar nueva contraseña</ion-button>
+    
+  </div>
+  
+
+</ion-content>

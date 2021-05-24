@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+ion-content {
+    --background: #F1F1F3 !important;
+    font-family: 'Roboto' !important;
+}
+
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+ion-icon{
+    color: red;
+    transform: scale(2);
+    margin-right: 20px;
+}
+
+div{
+    text-align: center !important;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+    margin-top: 7vh;
+    border: 1px solid #FFFFFF;
+    border-radius: 50px;
+}
+
+.botones{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    --background:transparent;
+    border: 1px solid #17AE55;
+    border-radius: 45px;
+    color: #17AE55;
+}

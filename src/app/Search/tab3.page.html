@@ -1,0 +1,53 @@
+<ion-header *ngIf="user$ | async as user">
+  <ion-toolbar>
+    <ion-title>
+      <ion-avatar (click)="profile()">
+        <img src="{{user.photoURL}}">
+      </ion-avatar>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+
+  <ion-searchbar #q class="search-bar" (keyup.enter)="search(q.value, $event)" showCancelButton="always"></ion-searchbar>
+
+  <div style="margin-left: 20px;">
+
+    <h4>Empresas Saludables</h4>
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-col size="4" *ngFor="let company of healthyCompanies;">
+          <ion-card button (click)="displayCompany(company.name)" mode="md">
+            <img class="companyLogo" src={{company.imgURL}}/>
+            <ion-card-header>
+              <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+
+    <h4>Otras Empresas</h4>
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-col size="4" *ngFor="let company of otherCompanies;">
+          <ion-card button (click)="displayCompany(company.name)" mode="md">
+            <img class="companyLogo" src={{company.imgURL}}/>
+            <ion-card-header>
+              <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+
+  </div>
+
+</ion-content>

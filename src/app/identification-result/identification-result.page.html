@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Result</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="result === true">
+    <ion-grid>
+
+      <ion-row>
+  
+          <ion-col size="4" offset="4" *ngFor="let product of products; let first = first" [ngClass]="{'first': first}" style="text-align: center;">
+            <h2 *ngIf="first">{{products[0].percentage}}%</h2>
+            <ion-card button (click)="displayProduct(products[0].key)" *ngIf="first">
+              <img src={{products[0].imgURL}}/>
+              <ion-card-header>
+                <ion-card-subtitle>{{products[0].name}}</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+      
+      </ion-row>
+  
+      <h1>Productos Parecidos</h1>
+      <ion-row>
+  
+        <ion-col size="4" *ngFor="let product of products | slice:1" style="text-align: center;">
+          <h5>{{product.percentage}}%</h5>
+          <ion-card button (click)="displayProduct(product.key)">
+            <img src={{product.imgURL}}/>
+            <ion-card-header>
+              <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+  
+      </ion-row>
+  
+      <ion-row>
+  
+        <h1>Recomendaciones Saludables</h1>
+        <ion-col size="4" *ngFor="let product of healthyRecommendations">
+          <ion-card button (click)="displayProduct(product.key)">
+            <img src={{product.imgURL}}/>
+            <ion-card-header>
+              <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+  
+      </ion-row>
+      
+    </ion-grid>
+  </div>
+  
+  <div *ngIf="result === false">
+    <h4>
+      No hay resultado
+    </h4>
+  </div>
+  
+
+</ion-content>
